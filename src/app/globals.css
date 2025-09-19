@@ -1,26 +1,25 @@
-@import "tailwindcss";
+/* Tailwind v3 directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* If tw-animate-css is pure CSS, you may keep this import AFTER Tailwind. 
+   If it’s a Tailwind plugin, remove this import and add it in tailwind.config.ts instead. */
+/* @import "tw-animate-css"; */
+
+/* keep your :root, .dark, and @layer base exactly as you have them */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ... your variables ... */
+}
+.dark {
+  /* ... your dark variables ... */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
